@@ -46,7 +46,7 @@ app.get('/captures', function (req, res) {
     trees.*, planter.first_name as first_name, planter.last_name as last_name,
     planter.image_url as user_image_url 
   FROM trees
-  INNER JOIN planter
+  LEFT INNER JOIN planter
   ON planter.id = trees.planter_id
   WHERE active = true ` + boundingBoxQuery + filter ;
   console.log(sql);
